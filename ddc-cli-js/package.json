@@ -1,16 +1,22 @@
 {
   "name": "ddc-cli-js",
+  "type": "module",
   "version": "0.1.0",
   "description": "CLI for DDC",
   "main": "index.js",
   "repository": "https://github.com/Cerebellum-Network/ddc-cli-js",
   "author": "Aurélien Nicolas <aurel@cere.io>",
+  "contributors": [
+    "Aleksey Elyseev <a.elyseev@cere.io>"
+  ],
   "license": "MIT",
   "dependencies": {
     "@cere-ddc-sdk/ddc-client": "1.3.3",
     "@polkadot/util": "6.11.1",
     "@types/node": "^18.7.2",
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "mime": "^3.0.0"
   },
   "devDependencies": {
     "ts-node": "^10.9.1",

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style type="text/css">
+        body {
+            font-family: Aril, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+            background: #e1e1e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        @keyframes pulse {
+            from {
+                opacity: 100%;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        div {
+            text-align: center;
+            font-size: 1.5rem;
+            will-change: opacity;
+            animation: 2s ease-in-out infinite alternate pulse;
+        }
+    </style>
+    <script>
+        window.routes = {'/app.html': '/app-from-sw.html'};
+    </script>
+    <script type="module" src="js/app.js"></script>
+    <title>Loading app...</title>
+</head>
+<body>
+    <div>Loading ...</div>
+</body>
+</html>
