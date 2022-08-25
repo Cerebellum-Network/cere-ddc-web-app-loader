@@ -10,5 +10,3 @@ const tmpl = ejs.compile(fs.readFileSync(path.join(dirname, 'tmpl', 'loader.ejs'
 const html = tmpl({routes: {data: 'test'}});
 
 
-
-

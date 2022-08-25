@@ -13,9 +13,14 @@ function sendMessage(target, message) {
     });
 }
 
-function register(scope = '/') {
+/**
+ * @param {string} sw
+ * @param {string} [scope]
+ * @return {Promise<unknown>}
+ */
+function register(sw, scope = '/') {
     return new Promise((resolve, reject) => {
-        navigator.serviceWorker.register('/sw.js', {scope})
+        navigator.serviceWorker.register(sw, {scope})
             .then(registration => {
                 resolve(registration.installing || registration.waiting || registration.active);
             })
@@ -41,10 +46,8 @@ const waitForSwIsActivated = (sw) => {
 };
 
 const scope = location.pathname;
-const sw = await register(scope);
-
+const sw = await register('/sw.js', scope);
 await waitForSwIsActivated(sw);
-
 await sendMessage(sw, {type: 'routes', data: window.routes});
 
 window.location.reload();

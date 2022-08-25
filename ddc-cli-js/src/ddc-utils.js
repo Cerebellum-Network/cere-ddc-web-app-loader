@@ -39,18 +39,18 @@ const createBucket = async (ddcClient) => {
 
 /**
  * @param {DdcClient} ddcClient
- * @param {BigInt} bucketId
  * @param {string} filename
- * @return {Promise<{uri: *, url: string}>}
+ * @return {Promise<{uri: object, url: string}>}
  */
-export const storeFile = async (ddcClient, bucketId, filename) => {
+export const storeFile = async (ddcClient, filename) => {
     const fileToUpload = fs.readFileSync(filename);
+    console.log(filename, mime.getType(filename));
     const tags = [
         new Tag('name', filename),
-        new Tag('type', mime.getType(filename), SearchType.NOT_SEARCHABLE)
+        new Tag('content-type', mime.getType(filename), SearchType.NOT_SEARCHABLE)
     ];
     const file = new DdcFile(fileToUpload, tags);
-    const uri = await ddcClient.store(bucketId, file, {
+    const uri = await ddcClient.store(config.bucketId, file, {
         encrypt: false,
     });
     const url = new URL(ddcClient.caStorage.cdnNodeUrl);

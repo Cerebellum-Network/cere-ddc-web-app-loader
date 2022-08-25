@@ -38,8 +38,7 @@
         }
     </style>
     <script>
-        window.routes = {'css/style.css': '/styles/style.css'};
-        window.mainRoutes = {[window.location.pathname]: '/game.html'};
+        window.routes = <%- JSON.stringify(routes) %>;
     </script>
     <script type="module">
         function sendMessage(target, message) {
@@ -90,9 +89,11 @@
         };
 
         const scope = location.pathname;
-        const sw = await register('/sw.js', scope);
+        const sw = await register('<%- sw %>', scope);
         await waitForSwIsActivated(sw);
-        await sendMessage(sw, {type: 'routes', data: {routes: window.routes, mainRoutes: window.mainRoutes}});
+        const routes = window.routes;
+        routes[scope] = '<%- app %>';
+        await sendMessage(sw, {type: 'routes', data: routes});
 
         window.location.reload();
     </script>
