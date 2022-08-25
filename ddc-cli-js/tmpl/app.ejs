@@ -39,6 +39,7 @@
     </style>
     <script>
         window.routes = <%- JSON.stringify(routes) %>;
+        window.mainRoutes = {[window.location.pathname]: '<%- app %>'};
     </script>
     <script type="module">
         function sendMessage(target, message) {
@@ -91,9 +92,7 @@
         const scope = location.pathname;
         const sw = await register('<%- sw %>', scope);
         await waitForSwIsActivated(sw);
-        const routes = window.routes;
-        routes[scope] = '<%- app %>';
-        await sendMessage(sw, {type: 'routes', data: routes});
+        await sendMessage(sw, {type: 'routes', data: {routes: window.routes, mainRoutes: window.mainRoutes}});
 
         window.location.reload();
     </script>

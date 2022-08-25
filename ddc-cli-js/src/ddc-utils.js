@@ -44,7 +44,6 @@ const createBucket = async (ddcClient) => {
  */
 export const storeFile = async (ddcClient, filename) => {
     const fileToUpload = fs.readFileSync(filename);
-    console.log(filename, mime.getType(filename));
     const tags = [
         new Tag('name', filename),
         new Tag('content-type', mime.getType(filename), SearchType.NOT_SEARCHABLE)

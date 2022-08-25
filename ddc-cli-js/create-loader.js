@@ -5,6 +5,7 @@ import {URL} from 'node:url';
 import {File as DdcFile, SearchType, Tag} from '@cere-ddc-sdk/ddc-client';
 import {createClient, storeFile} from './src/ddc-utils.js';
 import {config} from './src/config.js';
+import {uploadDir} from './src/uploader.js';
 
 const dirname = path.dirname(new URL(import.meta.url).pathname);
 
@@ -13,11 +14,12 @@ const tmpl = ejs.compile(fs.readFileSync(path.join(dirname, 'tmpl', 'app.ejs'), 
 const ddcClient = await createClient();
 const sw = await storeFile(ddcClient, '/Users/aelyseev/Documents/Work/cere/cere-network/games-demo/app/sw.js');
 const app = await storeFile(ddcClient, '/Users/aelyseev/Documents/Work/cere/cere-network/games-demo/app/game.html');
+const routes = await uploadDir('/Users/aelyseev/Documents/Work/cere/cere-network/games-demo/app');
 
 const loaderHtml = tmpl({
     sw: new URL(sw.url).pathname,
     app: app.url,
-    routes: {},
+    routes: routes.reduce((acc, item) => ({...acc, ...item}), {}),
 });
 
 const tags = [
