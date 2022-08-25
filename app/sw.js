@@ -34,7 +34,6 @@ workbox.routing.registerRoute(({url}) => {
 function requestHandler({event}) {
     const url = new URL(event.request.url);
     const entries = Object.entries(routes);
-    console.log('sw requestHandler', url.href, routes, entries);
     const entry = entries.find(([path]) => url.pathname.endsWith(path));
     if (mainRoutes[url.pathname]) {
         event.respondWith(fetch(mainRoutes[url.pathname]));

@@ -13,8 +13,8 @@ const tmpl = ejs.compile(fs.readFileSync(path.join(dirname, 'tmpl', 'app.ejs'), 
 
 const ddcClient = await createClient();
 const sw = await storeFile(ddcClient, '/Users/aelyseev/Documents/Work/cere/cere-network/games-demo/app/sw.js');
-const app = await storeFile(ddcClient, '/Users/aelyseev/Documents/Work/cere/cere-network/games-demo/app/game.html');
-const routes = await uploadDir('/Users/aelyseev/Documents/Work/cere/cere-network/games-demo/app');
+const app = await storeFile(ddcClient, '/Users/aelyseev/Documents/Work/cere/cere-network/games-demo/2048/index.html');
+const routes = await uploadDir('/Users/aelyseev/Documents/Work/cere/cere-network/games-demo/2048');
 
 const loaderHtml = tmpl({
     sw: new URL(sw.url).pathname,
