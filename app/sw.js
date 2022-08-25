@@ -14,7 +14,6 @@ self.addEventListener('activate', event => {
 self.addEventListener('message', (event) => {
     if (event.data?.type === 'routes') {
         const data = event.data?.data || {};
-        console.log('addEventListener', {data});
         routes = data?.routes || {};
         mainRoutes = data?.mainRoutes || {};
     }
