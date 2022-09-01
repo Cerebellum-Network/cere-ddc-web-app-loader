@@ -1,0 +1,46 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "node": true,
+    "browser": false,
+    "jest": true
+  },
+  "globals": {
+    "importScripts": false,
+    "self": false,
+    "workbox": false
+  },
+  "plugins": [
+    "import"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": [
+      "./tsconfig.json"
+    ]
+  },
+  "extends": [
+    "airbnb-typescript/base",
+    "prettier"
+  ],
+  "rules": {
+    "max-len": [2, 120],
+    "object-curly-newline": [2, {"consistent": true}],
+    "object-curly-spacing": ["error", "always"],
+    "import/prefer-default-export": 0,
+    "prefer-spread": 0
+  },
+  "settings": {
+    "import/extensions": [".js", ".ts"],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts"]
+      }
+    }
+  }
+}
