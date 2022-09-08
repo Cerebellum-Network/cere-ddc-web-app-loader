@@ -16,13 +16,13 @@ jobs:
           node-version: '16.15.0'
           registry-url: 'https://registry.npmjs.org'
           submodules: "true"
-      - name: Install packages
-        run: npm install
       - name: NPM set register
         run: npm set registry https://registry.npmjs.org
+      - name: Install packages
+        run: yarn
       - name: NPM whoami
         run: npm whoami
       - name: Create a build
-        run: npm run test
+        run: yarn build
       - name: Publish
         run: node scripts/publish.js
