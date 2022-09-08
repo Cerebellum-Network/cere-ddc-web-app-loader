@@ -18,10 +18,10 @@ jobs:
           submodules: "true"
       - name: NPM set register
         run: npm set registry https://registry.npmjs.org
-      - name: Install packages
-        run: yarn
       - name: NPM whoami
         run: npm whoami
+      - name: Install packages
+        run: yarn
       - name: Create a build
         run: yarn build
       - name: Publish
