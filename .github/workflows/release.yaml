@@ -23,6 +23,6 @@ jobs:
       - name: Install packages
         run: yarn
       - name: Create a build
-        run: yarn build
+        run: yarn package
       - name: Publish
         run: node scripts/publish.js
