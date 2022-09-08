@@ -28,4 +28,4 @@ jobs:
       - name: Check code lint rules
         run: yarn lint
       - name: Check that the build is correct
-        run: yarn build
+        run: yarn package
