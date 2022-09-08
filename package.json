@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "The tool to upload HTML apps to the DDC",
   "main": "src/index.js",
-  "repository": "https://github.com/Cerebellum-Network/ddc-cli-js",
+  "repository": "https://github.com/Cerebellum-Network/web-loader",
   "author": "Aurélien Nicolas <aurel@cere.io>",
   "contributors": [
     {
