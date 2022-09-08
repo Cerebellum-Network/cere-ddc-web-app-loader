@@ -22,8 +22,8 @@
   "types": "src/index.d.ts",
   "scripts": {
     "lint": "eslint src/**/*.ts",
-    "build:mjs": "NODE_ENV=development webpack",
-    "build:cjs": "TARGET=cjs NODE_ENV=development webpack",
+    "build:mjs": "NODE_ENV=production webpack",
+    "build:cjs": "TARGET=cjs NODE_ENV=production webpack",
     "build": "npm run types && npm run build:mjs && npm run build:cjs",
     "types": "tsc -p tsconfig.build.json --emitDeclarationOnly",
     "package": "rimraf build && clean-publish --temp-dir build && npm run build"

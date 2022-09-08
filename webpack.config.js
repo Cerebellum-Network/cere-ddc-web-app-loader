@@ -82,8 +82,20 @@ if (target === "cjs") {
       },
       filename: "[name].cjs",
     },
+    node: {
+      __dirname: false,
+    }
   });
 } else {
+  webpackConfig = merge(webpackConfig, {
+    module: {
+      parser: {
+        javascript: {
+          importMeta: false,
+        }
+      }
+    }
+  });
   webpackConfig.plugins.push(
     new webpack.DefinePlugin({
       '__dirname': undefined
