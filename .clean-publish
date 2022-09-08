@@ -1,0 +1,15 @@
+{
+  "withoutPublish": true,
+  "tempDir": "build",
+  "files": [
+      ".browserslistrc",
+      ".idea/**",
+      ".env",
+      ".*",
+      "app-loader-markup/**",
+      "babel.config.json",
+      "scripts/**",
+      "tsconfig.*",
+      "webpack.config.js"
+  ]
+}
