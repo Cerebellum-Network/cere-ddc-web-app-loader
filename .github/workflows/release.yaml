@@ -1,4 +1,4 @@
-name: 'CD release'
+name: 'NPM publish'
 on:
   release:
     types: [prereleased, released]
