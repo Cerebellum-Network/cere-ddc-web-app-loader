@@ -3,3 +3,7 @@ node_modules
 .env
 build
 
+src/deploy.ts
+src/request-with-retry.mjs
+src/env.js
+yarn-error.log

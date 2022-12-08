@@ -24,6 +24,9 @@ const config = {
     outputModule: true,
     topLevelAwait: true,
   },
+  optimization: {
+    minimize: false,
+  },
   devtool: 'source-map',
   module: {
     rules: [
