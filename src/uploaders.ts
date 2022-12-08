@@ -62,11 +62,11 @@ type UploadAppOptions = {
   index?: string;
   appId?: string;
   bucketId: bigint;
-  rewrites: Record<string | 'sw.js', string>;
+  rewrites?: Record<string | 'sw.js', string>;
 };
 
 export const uploadWebApp = async (ddcClient: DdcClient,
-  { folder, index, appId, bucketId, rewrites }: UploadAppOptions): Promise<{ appId: string; url: string }> => {
+  { folder, index, appId, bucketId, rewrites = {} }: UploadAppOptions): Promise<{ appId: string; url: string }> => {
   const applicationPath = appId || nanoid();
   const files = findFiles(folder);
   let indexFileName = index || 'index.html';
@@ -93,7 +93,7 @@ export const uploadWebApp = async (ddcClient: DdcClient,
     }
     console.log(`${count}/${files.length}: ${file}`);
     count += 1;
-  }))
+  }));
 
   const version = buildFolderVersion(folder);
   const swJs = swTmpl({ version });
